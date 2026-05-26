@@ -168,10 +168,51 @@ function initContactForm() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // 5. STEP 2 → STEP 3 (送信完了へ)
-  btnSubmit.addEventListener('click', () => {
-    // 送信処理（擬似的なもの。実環境ではサーバーへFetch）
-    
+  // 5. STEP 2 → STEP 3 (送信完了へ / Googleスプレッドシート・GAS連携対応)
+  btnSubmit.addEventListener('click', async () => {
+    // 多重送信防止
+    btnSubmit.disabled = true;
+    const originalText = btnSubmit.innerHTML;
+    btnSubmit.innerHTML = '送信中... <i class="fa-solid fa-spinner fa-spin"></i>';
+
+    // フォームデータの集約
+    const formData = {
+      timestamp: new Date().toLocaleString('ja-JP'),
+      name: nameInput.value,
+      kana: kanaInput.value,
+      email: emailInput.value,
+      phone: phoneInput.value,
+      preference: document.querySelector('input[name="job-preference"]:checked').value,
+      message: messageInput.value,
+      jobId: jobId || 'なし',
+      jobTitle: jobTitle || 'なし',
+      source: source || 'direct'
+    };
+
+    // 【スプレッドシート連携】
+    // デプロイしたGoogle Apps Script (GAS) のWebアプリURLをここに貼り付けるだけで、
+    // 自動的にスプレッドシートにデータが蓄積されるようになります。
+    const GAS_WEBAPP_URL = ''; 
+
+    if (GAS_WEBAPP_URL) {
+      try {
+        // GASへデータをPOST送信 (no-corsモードでシンプルに送信)
+        await fetch(GAS_WEBAPP_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+      } catch (error) {
+        console.error('送信中にエラーが発生しました:', error);
+      }
+    } else {
+      // 動作デモ用の擬似的な遅延 (送信中の演出)
+      await new Promise(resolve => setTimeout(resolve, 800));
+    }
+
     // 画面切り替え
     section2.classList.remove('active');
     section3.classList.add('active');
