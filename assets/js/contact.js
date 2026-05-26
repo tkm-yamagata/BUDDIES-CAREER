@@ -38,7 +38,7 @@ function initContactForm() {
   if (jobTitle) {
     const jobPanel = document.getElementById('target-job-panel');
     const jobTitleSpan = document.getElementById('target-job-title');
-    
+
     if (jobPanel && jobTitleSpan) {
       jobPanel.style.display = 'flex';
       jobTitleSpan.textContent = jobTitle;
@@ -127,10 +127,10 @@ function initContactForm() {
       document.getElementById('confirm-kana').textContent = kanaInput.value;
       document.getElementById('confirm-email').textContent = emailInput.value;
       document.getElementById('confirm-phone').textContent = phoneInput.value;
-      
+
       const selectedPref = document.querySelector('input[name="job-preference"]:checked').value;
       document.getElementById('confirm-pref').textContent = selectedPref;
-      
+
       document.getElementById('confirm-message').textContent = messageInput.value.trim() || 'なし';
 
       // 画面切り替え
@@ -140,7 +140,7 @@ function initContactForm() {
       // インジケーター更新
       indicator1.classList.remove('active');
       indicator1.classList.add('completed');
-      
+
       indicator2.classList.add('active');
 
       // 最上部へスクロール
@@ -161,7 +161,7 @@ function initContactForm() {
     section1.classList.add('active');
 
     indicator2.classList.remove('active');
-    
+
     indicator1.classList.remove('completed');
     indicator1.classList.add('active');
 
