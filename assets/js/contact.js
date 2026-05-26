@@ -192,7 +192,7 @@ function initContactForm() {
     // 【スプレッドシート連携】
     // デプロイしたGoogle Apps Script (GAS) のWebアプリURLをここに貼り付けるだけで、
     // 自動的にスプレッドシートにデータが蓄積されるようになります。
-    const GAS_WEBAPP_URL = ''; 
+    const GAS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxmCRlAIbYjh07xkZ0AiRs6AyE9cEbYRJvcUeguKjuwoqtphpBVJSynTvaiqBr6xz0ZpA/exec';
 
     if (GAS_WEBAPP_URL) {
       try {
