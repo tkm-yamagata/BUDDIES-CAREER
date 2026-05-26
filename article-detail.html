@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記事詳細｜BUDDIES CAREER（バディーズキャリア）</title>
+  <meta name="description" content="製造職・施工管理職・技術職の転職に役立つキャリア記事の詳細ページです。">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/article.css">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress-bar" id="reading-progress"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__container">
+      <a href="index.html" class="logo">
+        <div class="logo__icon"><i class="fa-solid fa-people-arrows"></i></div>
+        <span class="logo__text">BUDDIES CAREER</span>
+      </a>
+      
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">ホーム</a></li>
+          <li><a href="company.html" class="nav__link">ビジョン・ミッション</a></li>
+          <li><a href="articles.html" class="nav__link active">キャリアノウハウ</a></li>
+          <li><a href="jobs.html" class="nav__link">求人検索</a></li>
+        </ul>
+        <div class="header__cta">
+          <a href="contact.html" class="btn btn-primary btn-sm"><i class="fa-regular fa-comments"></i> 無料キャリア相談</a>
+        </div>
+      </nav>
+
+      <button class="burger-menu" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav class="mobile-nav">
+    <ul class="mobile-nav__list">
+      <li><a href="index.html" class="mobile-nav__link">ホーム</a></li>
+      <li><a href="company.html" class="mobile-nav__link">ビジョン・ミッション</a></li>
+      <li><a href="articles.html" class="mobile-nav__link active">キャリアノウハウ</a></li>
+      <li><a href="jobs.html" class="mobile-nav__link">求人検索</a></li>
+    </ul>
+    <div class="mobile-nav__cta" style="margin-top: var(--space-md);">
+      <a href="contact.html" class="btn btn-primary" style="width: 100%;"><i class="fa-regular fa-comments"></i> 無料キャリア相談</a>
+    </div>
+  </nav>
+
+  <!-- Page Breadcrumb Section -->
+  <section class="section section-bg-gray" style="padding-top: calc(var(--header-height) + var(--space-xl)); padding-bottom: var(--space-xs);">
+    <div class="container">
+      <ul class="breadcrumb">
+        <li class="breadcrumb__item"><a href="index.html" class="breadcrumb__link">ホーム</a></li>
+        <li class="breadcrumb__item"><a href="articles.html" class="breadcrumb__link">キャリアノウハウ</a></li>
+        <li class="breadcrumb__item" id="breadcrumb-current-title">記事詳細</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Main Content Layout -->
+  <section class="section" style="padding-top: var(--space-lg);">
+    <div class="container detail-layout">
+      <!-- Left: Article Content -->
+      <main class="detail-main">
+        <article>
+          <!-- Article Header -->
+          <div class="article-header">
+            <div class="article-header__meta">
+              <span class="badge badge-primary" id="article-category">カテゴリ</span>
+              <span id="article-date"><i class="fa-regular fa-calendar"></i> 日付</span>
+              <span id="article-read-time"><i class="fa-regular fa-clock"></i> 5分</span>
+            </div>
+            <h1 class="article-header__title" id="article-title">記事タイトル</h1>
+            
+            <div class="article-header__author-area">
+              <img src="" alt="著者顔写真" class="article-header__author-img" id="article-author-img">
+              <div class="article-header__author-info">
+                <span class="article-header__author-name" id="article-author-name">著者名</span>
+                <span class="article-header__author-role" id="article-author-role">専門分野・肩書</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Image -->
+          <div class="article-hero-img-wrapper">
+            <img src="" alt="アイキャッチ画像" class="article-hero-img" id="article-hero-image">
+          </div>
+
+          <!-- Table of Contents (TOC) for Mobile / Embedded -->
+          <div class="toc-box" id="embedded-toc" style="display: none;">
+            <div class="toc-box__title"><i class="fa-solid fa-list-ol"></i> 本記事の目次</div>
+            <nav class="toc-box__list" id="embedded-toc-list">
+              <!-- JSで自動生成されます -->
+            </nav>
+          </div>
+
+          <!-- Rich Text Article Body -->
+          <div class="article-body" id="article-body-content">
+            <!-- JSで動的にマークアップが流し込まれます -->
+          </div>
+
+          <!-- Share Section -->
+          <div class="share-area">
+            <span class="share-title">この記事をシェアする</span>
+            <div class="share-btns">
+              <a href="#" class="share-btn share-btn--twitter" aria-label="Xでシェア"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" class="share-btn share-btn--facebook" aria-label="Facebookでシェア"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="share-btn share-btn--line" aria-label="LINEで送る"><i class="fa-brands fa-line"></i></a>
+            </div>
+          </div>
+
+          <!-- Tags List -->
+          <div style="margin-top: var(--space-lg); display: flex; gap: var(--space-xs); flex-wrap: wrap;" id="article-tags-placeholder">
+            <!-- JSでタグが生成されます -->
+          </div>
+        </article>
+
+        <!-- CTA Box in content -->
+        <div class="article-cta-card">
+          <span class="badge badge-secondary" style="background-color: rgba(255, 255, 255, 0.2); color: #ffffff;">BUDDIES CAREER エージェント</span>
+          <h3 class="article-cta-card__title">今の仕事を続けるか迷っているあなたへ</h3>
+          <p class="article-cta-card__desc">
+            「BUDDIES CAREER」では、製造・施工管理・インフラ業界で『働き方改革を推進しているホワイト企業』や『未経験から資格がとれる高待遇の非公開求人』を豊富に抱えています。キャリアの相談から面接対策まで、あなたの「バディ」が完全無料で並走します。
+          </p>
+          <a href="contact.html" class="btn btn-primary" style="background: #ffffff; color: var(--primary-color); border: none;"><i class="fa-regular fa-comments"></i> 伴走キャリア相談を申し込む (無料)</a>
+        </div>
+      </main>
+
+      <!-- Right: Sidebar (Sticky) -->
+      <aside class="detail-sidebar">
+        <div class="sticky-sidebar">
+          <!-- Table of Contents Widget (Desktop only sticky) -->
+          <div class="sidebar-widget" id="sticky-toc-widget" style="display: none;">
+            <h3 class="sidebar-widget__title" style="margin-bottom: var(--space-md);"><i class="fa-solid fa-list-ol"></i> 目次</h3>
+            <nav class="toc-box__list" id="sticky-toc-list">
+              <!-- JSで自動生成されます -->
+            </nav>
+          </div>
+
+          <!-- Sidebar Banner -->
+          <div class="sidebar-widget" style="background: var(--gradient-dark); color: #ffffff; border: none; padding: var(--space-xl); text-align: center;">
+            <i class="fa-solid fa-hard-hat" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: var(--space-sm);"></i>
+            <h4 style="font-size: 1.1rem; font-weight: 800; margin-bottom: var(--space-xs);">製造・施工管理の<br>優良求人多数！</h4>
+            <p style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5; margin-bottom: var(--space-md);">働き方改革が進む『土日祝休み』『年収500万以上』の非公開求人をご紹介。</p>
+            <a href="jobs.html" class="btn btn-primary btn-sm" style="width: 100%;">求人一覧を見る</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a href="index.html" class="logo footer__logo">
+            <div class="logo__icon"><i class="fa-solid fa-people-arrows"></i></div>
+            <span class="logo__text" style="color: #ffffff;">BUDDIES CAREER</span>
+          </a>
+          <p class="footer__desc">
+            「BUDDIES CAREER」は、製造・建設・インフラ等の技術職におけるキャリアアップ・転職支援を行うプラットフォームです。求職者に徹底して寄り添うバディ（伴走者）として、価値あるキャリアを共に創出します。
+          </p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__title">サービスメニュー</h3>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">ホーム</a></li>
+            <li><a href="company.html" class="footer__link">ビジョン・ミッション</a></li>
+            <li><a href="articles.html" class="footer__link">キャリアノウハウ（記事一覧）</a></li>
+            <li><a href="jobs.html" class="footer__link">求人を探す（求人一覧）</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__title">主要な取扱職種</h3>
+          <ul class="footer__links">
+            <li><a href="jobs.html?occupation=construction" class="footer__link">建築・土木施工管理</a></li>
+            <li><a href="jobs.html?occupation=manufacturing" class="footer__link">スマート製造・生産ライン管理</a></li>
+            <li><a href="jobs.html?occupation=office" class="footer__link">プロジェクトアシスタント・一般事務</a></li>
+            <li><a href="jobs.html" class="footer__link">その他優良技術職</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__newsletter">
+          <h3 class="footer__title">メルマガ登録</h3>
+          <p class="footer__desc" style="font-size: 0.85rem;">最新の非公開求人情報や、役立つキャリアノウハウ記事を定期的にお届けします。</p>
+          <form class="footer__newsletter-form" onsubmit="event.preventDefault(); alert('ご登録ありがとうございました！');">
+            <input type="email" placeholder="メールアドレス" class="footer__newsletter-input" required aria-label="メールアドレス入力">
+            <button type="submit" class="footer__newsletter-btn">購読</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__copyright">
+        <p>&copy; 2026 BUDDIES CAREER All Rights Reserved.</p>
+        <div class="footer__policy-links">
+          <a href="#" class="footer__link">利用規約</a>
+          <a href="#" class="footer__link">プライバシーポリシー</a>
+          <a href="#" class="footer__link">運営会社情報</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  
+  <!-- 記事詳細ページの動的レンダリングロジック -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const data = window.BUDDIES_DATA;
+      if (!data) return;
+
+      // 1. URLパラメータから対象記事の特定
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get('slug');
+      const id = parseInt(urlParams.get('id'));
+
+      let article = null;
+      if (slug) {
+        article = data.articles.find(a => a.slug === slug);
+      } else if (id) {
+        article = data.articles.find(a => a.id === id);
+      }
+
+      // 記事が見つからない場合は最初の記事を表示（フォールバック）
+      if (!article) {
+        article = data.articles[0];
+      }
+
+      // 2. 記事データのDOMへのバインド
+      document.title = `${article.title}｜BUDDIES CAREER`;
+      document.querySelector('meta[name="description"]').setAttribute('content', article.summary);
+      
+      document.getElementById('breadcrumb-current-title').textContent = article.title;
+      document.getElementById('article-category').textContent = article.category;
+      document.getElementById('article-date').innerHTML = `<i class="fa-regular fa-calendar"></i> ${article.date}`;
+      document.getElementById('article-read-time').innerHTML = `<i class="fa-regular fa-clock"></i> 読了目安: ${article.readTime}`;
+      document.getElementById('article-title').textContent = article.title;
+      
+      document.getElementById('article-author-img').src = article.author.image;
+      document.getElementById('article-author-img').alt = article.author.name;
+      document.getElementById('article-author-name').textContent = article.author.name;
+      document.getElementById('article-author-role').textContent = article.author.role;
+      
+      document.getElementById('article-hero-image').src = article.image;
+      document.getElementById('article-hero-image').alt = article.title;
+      
+      const bodyContainer = document.getElementById('article-body-content');
+      bodyContainer.innerHTML = article.content;
+
+      // タグの描画
+      const tagsContainer = document.getElementById('article-tags-placeholder');
+      tagsContainer.innerHTML = article.tags.map(tag => `
+        <span class="badge badge-outline">#${tag}</span>
+      `).join('');
+
+      // 3. 本文中の見出し(h2, h3)を解析し、目次(TOC)を自動生成
+      const headings = bodyContainer.querySelectorAll('h2, h3');
+      const embeddedTOC = document.getElementById('embedded-toc');
+      const embeddedTOCList = document.getElementById('embedded-toc-list');
+      const stickyTOCWidget = document.getElementById('sticky-toc-widget');
+      const stickyTOCList = document.getElementById('sticky-toc-list');
+
+      if (headings.length > 0) {
+        // TOCボックスを表示
+        embeddedTOC.style.display = 'block';
+        stickyTOCWidget.style.display = 'block';
+
+        const tocHtml = Array.from(headings).map((heading, index) => {
+          // 見出しにIDを設定 (アンカーリンク用)
+          const id = `heading-${index}`;
+          heading.id = id;
+          
+          const levelClass = heading.tagName.toLowerCase() === 'h2' ? 'toc-box__item-h2' : 'toc-box__item-h3';
+          const icon = heading.tagName.toLowerCase() === 'h2' ? '<i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-right: 6px; color: var(--primary-color);"></i>' : '';
+          return `
+            <div class="${levelClass}">
+              <a href="#${id}" class="toc-box__link">${icon}${heading.innerText.replace('■', '').trim()}</a>
+            </div>
+          `;
+        }).join('');
+
+        embeddedTOCList.innerHTML = tocHtml;
+        stickyTOCList.innerHTML = tocHtml;
+      }
+
+      // 4. リーディングプログレスバーの制御
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        // 記事部分の全体の高さを計測（大まかにbodyからフッター直前まで）
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        
+        document.getElementById('reading-progress').style.width = `${Math.min(scrollPercent, 100)}%`;
+      });
+    });
+  </script>
+</body>
+</html>

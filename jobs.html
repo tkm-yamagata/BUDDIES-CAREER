@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>求人検索・一覧｜BUDDIES CAREER（バディーズキャリア）</title>
+  <meta name="description" content="製造職・施工管理職・プロジェクトサポート職などの転職・中途採用求人一覧ページです。土日祝休み、未経験歓迎、高年収の非公開求人を多数掲載。あなたの希望条件に合わせて簡単に検索・絞り込みができます。">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/job.css">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__container">
+      <a href="index.html" class="logo">
+        <div class="logo__icon"><i class="fa-solid fa-people-arrows"></i></div>
+        <span class="logo__text">BUDDIES CAREER</span>
+      </a>
+      
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">ホーム</a></li>
+          <li><a href="company.html" class="nav__link">ビジョン・ミッション</a></li>
+          <li><a href="articles.html" class="nav__link">キャリアノウハウ</a></li>
+          <li><a href="jobs.html" class="nav__link active">求人検索</a></li>
+        </ul>
+        <div class="header__cta">
+          <a href="contact.html" class="btn btn-primary btn-sm"><i class="fa-regular fa-comments"></i> 無料キャリア相談</a>
+        </div>
+      </nav>
+
+      <button class="burger-menu" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav class="mobile-nav">
+    <ul class="mobile-nav__list">
+      <li><a href="index.html" class="mobile-nav__link">ホーム</a></li>
+      <li><a href="company.html" class="mobile-nav__link">ビジョン・ミッション</a></li>
+      <li><a href="articles.html" class="mobile-nav__link">キャリアノウハウ</a></li>
+      <li><a href="jobs.html" class="mobile-nav__link active">求人検索</a></li>
+    </ul>
+    <div class="mobile-nav__cta" style="margin-top: var(--space-md);">
+      <a href="contact.html" class="btn btn-primary" style="width: 100%;"><i class="fa-regular fa-comments"></i> 無料キャリア相談</a>
+    </div>
+  </nav>
+
+  <!-- Page Title Section -->
+  <section class="section section-bg-gray" style="padding-top: calc(var(--header-height) + var(--space-xl)); padding-bottom: var(--space-xl);">
+    <div class="container">
+      <ul class="breadcrumb">
+        <li class="breadcrumb__item"><a href="index.html" class="breadcrumb__link">ホーム</a></li>
+        <li class="breadcrumb__item">求人検索</li>
+      </ul>
+      <div class="section-title-area" style="text-align: left; align-items: flex-start; margin-bottom: 0;">
+        <span class="section-subtitle">JOB BOARD</span>
+        <h1 class="section-title">求人情報を <span class="gradient">探す</span></h1>
+        <p style="color: var(--text-secondary); margin-top: var(--space-sm); max-width: 650px;">
+          BUDDIES CAREERが厳選した、製造技術・施工管理・プロジェクトサポートの優良求人です。大手ゼネコンやスマートファクトリーなどの非公開求人もこちらからアクセスできます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Job Layout -->
+  <section class="section">
+    <div class="container job-layout">
+      <!-- Left Sidebar: Filters -->
+      <aside class="job-filter-sidebar">
+        <div class="job-filter-sidebar__title">
+          <i class="fa-solid fa-sliders"></i> 絞り込み条件
+        </div>
+
+        <!-- Occupation Filter -->
+        <div class="filter-group">
+          <h3 class="filter-group__title">職種</h3>
+          <div class="filter-checkbox-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox" name="occupation" value="construction"> 施工管理・ディレクター
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox" name="occupation" value="manufacturing"> 製造・スマート技術職
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox" name="occupation" value="office"> プロジェクトサポート・事務
+            </label>
+          </div>
+        </div>
+
+        <!-- Location Filter -->
+        <div class="filter-group">
+          <h3 class="filter-group__title">勤務地</h3>
+          <div class="filter-checkbox-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox" name="location" value="tokyo"> 東京都
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox" name="location" value="aichi"> 愛知県
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox" name="location" value="osaka"> 大阪府
+            </label>
+          </div>
+        </div>
+
+        <!-- Salary Filter -->
+        <div class="filter-group">
+          <h3 class="filter-group__title">最低想定年収</h3>
+          <div class="filter-checkbox-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox" name="salary" value="400"> 400万円以上
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox" name="salary" value="600"> 600万円以上
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox" name="salary" value="800"> 800万円以上
+            </label>
+          </div>
+        </div>
+
+        <!-- Job Privacy Type Filter -->
+        <div class="filter-group">
+          <h3 class="filter-group__title">求人区分</h3>
+          <div class="filter-checkbox-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox" name="privacy" value="public"> 公開求人
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="filter-checkbox" name="privacy" value="private"> 非公開求人
+            </label>
+          </div>
+        </div>
+
+        <!-- Reset Button -->
+        <button id="filter-reset-btn" class="btn btn-secondary btn-sm" style="width: 100%; margin-top: var(--space-md);">
+          <i class="fa-solid fa-arrow-rotate-left"></i> 条件をクリア
+        </button>
+      </aside>
+
+      <!-- Right Main: Search box & Job List -->
+      <main class="job-main">
+        <!-- Search input box -->
+        <div class="search-box" style="margin-bottom: var(--space-xl);">
+          <input type="text" id="job-search-input" placeholder="フリーワードで求人を検索 (例: 未経験, 土日休み, 福利厚生)..." class="search-box__input" aria-label="求人フリーワード検索">
+          <button class="search-box__btn" id="job-search-btn" aria-label="検索する"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <!-- Active filter tag show area -->
+        <div id="active-filters-info" style="display: none; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md); font-size: 0.85rem; color: var(--text-secondary);">
+          <span>現在の絞り込み:</span>
+          <div id="active-filter-tags" style="display: flex; gap: var(--space-xs); flex-wrap: wrap;"></div>
+        </div>
+
+        <!-- Hit counts show -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-lg);">
+          <span style="font-size: 0.95rem; font-weight: 700; color: var(--text-secondary);">
+            該当求人: <span id="job-count" style="font-size: 1.25rem; color: var(--primary-color);">0</span> 件
+          </span>
+        </div>
+
+        <!-- Job Grid -->
+        <div style="display: flex; flex-direction: column; gap: var(--space-lg);" id="jobs-list-placeholder">
+          <!-- JSで求人カードが描画されます -->
+        </div>
+
+        <!-- No Job Show -->
+        <div id="no-jobs-message" style="display: none; text-align: center; padding: var(--space-huge) var(--space-md); color: var(--text-muted); background: var(--bg-secondary); border-radius: var(--radius-xl); border: 1px dashed var(--border-color);">
+          <i class="fa-solid fa-briefcase" style="font-size: 3.5rem; margin-bottom: var(--space-lg); color: var(--text-muted); display: block;"></i>
+          <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: var(--space-sm); color: var(--text-primary);">一致する求人が見つかりませんでした</h3>
+          <p style="font-size: 0.9rem; line-height: 1.6; max-width: 500px; margin: 0 auto;">ご希望の条件に合う非公開求人が、データベースに別途登録されている場合がございます。ぜひ無料キャリア相談にてコーディネーターにお問い合わせください。</p>
+          <a href="contact.html" class="btn btn-primary" style="margin-top: var(--space-lg);"><i class="fa-regular fa-comments"></i> 非公開求人について相談する</a>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- CTA Banner Section -->
+  <section class="section section-bg-gray">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div class="cta-banner__content">
+          <span class="section-subtitle" style="color: var(--secondary-color);">EXCLUSIVE OPPORTUNITY</span>
+          <h2 class="cta-banner__title">
+            会員限定の「非公開求人」を覗いてみませんか？
+          </h2>
+          <p class="cta-banner__desc">
+            BUDDIES CAREERが扱う求人のうち、約70%は一般には公開されない「完全非公開求人」です。競合他社に知られたくない極秘プロジェクトや、破格の待遇で即戦力を募集するハイクラス枠など、あなたにぴったりの特別枠を個別にご紹介します。
+          </p>
+          <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-regular fa-comments"></i> キャリア相談に登録して非公開求人を開示する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a href="index.html" class="logo footer__logo">
+            <div class="logo__icon"><i class="fa-solid fa-people-arrows"></i></div>
+            <span class="logo__text" style="color: #ffffff;">BUDDIES CAREER</span>
+          </a>
+          <p class="footer__desc">
+            「BUDDIES CAREER」は、製造・建設・インフラ等の技術職におけるキャリアアップ・転職支援を行うプラットフォームです。求職者に徹底して寄り添うバディ（伴走者）として、価値あるキャリアを共に創出します。
+          </p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__title">サービスメニュー</h3>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">ホーム</a></li>
+            <li><a href="company.html" class="footer__link">ビジョン・ミッション</a></li>
+            <li><a href="articles.html" class="footer__link">キャリアノウハウ（記事一覧）</a></li>
+            <li><a href="jobs.html" class="footer__link">求人を探す（求人一覧）</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__title">主要な取扱職種</h3>
+          <ul class="footer__links">
+            <li><a href="jobs.html?occupation=construction" class="footer__link">建築・土木施工管理</a></li>
+            <li><a href="jobs.html?occupation=manufacturing" class="footer__link">スマート製造・生産ライン管理</a></li>
+            <li><a href="jobs.html?occupation=office" class="footer__link">プロジェクトアシスタント・一般事務</a></li>
+            <li><a href="jobs.html" class="footer__link">その他優良技術職</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__newsletter">
+          <h3 class="footer__title">メルマガ登録</h3>
+          <p class="footer__desc" style="font-size: 0.85rem;">最新の非公開求人情報や、役立つキャリアノウハウ記事を定期的にお届けします。</p>
+          <form class="footer__newsletter-form" onsubmit="event.preventDefault(); alert('ご登録ありがとうございました！');">
+            <input type="email" placeholder="メールアドレス" class="footer__newsletter-input" required aria-label="メールアドレス入力">
+            <button type="submit" class="footer__newsletter-btn">購読</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__copyright">
+        <p>&copy; 2026 BUDDIES CAREER All Rights Reserved.</p>
+        <div class="footer__policy-links">
+          <a href="#" class="footer__link">利用規約</a>
+          <a href="#" class="footer__link">プライバシーポリシー</a>
+          <a href="#" class="footer__link">運営会社情報</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  
+  <!-- 求人一覧ページの動的制御 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const data = window.BUDDIES_DATA;
+      if (!data) return;
+
+      const jobs = data.jobs;
+      const listContainer = document.getElementById('jobs-list-placeholder');
+      const noJobsMsg = document.getElementById('no-jobs-message');
+      const jobCountSpan = document.getElementById('job-count');
+      
+      const searchInput = document.getElementById('job-search-input');
+      const searchBtn = document.getElementById('job-search-btn');
+      const resetBtn = document.getElementById('filter-reset-btn');
+      
+      const checkboxes = document.querySelectorAll('.filter-checkbox');
+      const activeFiltersInfo = document.getElementById('active-filters-info');
+      const activeFilterTags = document.getElementById('active-filter-tags');
+
+      // URLパラメータの解析 (初期選択状態の設定)
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialOccupation = urlParams.get('occupation');
+      const initialLocation = urlParams.get('location');
+
+      if (initialOccupation) {
+        const cb = document.querySelector(`.filter-checkbox[name="occupation"][value="${initialOccupation}"]`);
+        if (cb) cb.checked = true;
+      }
+      if (initialLocation) {
+        const cb = document.querySelector(`.filter-checkbox[name="location"][value="${initialLocation}"]`);
+        if (cb) cb.checked = true;
+      }
+
+      // 絞り込み実行関数
+      function filterAndRenderJobs() {
+        // 選択された各フィルター値の取得
+        const selectedOccupations = Array.from(document.querySelectorAll('.filter-checkbox[name="occupation"]:checked')).map(cb => cb.value);
+        const selectedLocations = Array.from(document.querySelectorAll('.filter-checkbox[name="location"]:checked')).map(cb => cb.value);
+        const selectedSalaries = Array.from(document.querySelectorAll('.filter-checkbox[name="salary"]:checked')).map(cb => parseInt(cb.value));
+        const selectedPrivacy = Array.from(document.querySelectorAll('.filter-checkbox[name="privacy"]:checked')).map(cb => cb.value);
+        
+        const searchQuery = searchInput.value.trim().toLowerCase();
+
+        // フィルタリング処理
+        const filtered = jobs.filter(job => {
+          // 職種フィルター
+          const matchOccupation = selectedOccupations.length === 0 || selectedOccupations.includes(job.occupationSlug);
+          
+          // 勤務地フィルター
+          const matchLocation = selectedLocations.length === 0 || selectedLocations.includes(job.locationSlug);
+          
+          // 年収フィルター (想定最低年収が選択以上のものをヒット)
+          const matchSalary = selectedSalaries.length === 0 || selectedSalaries.some(salaryVal => job.minSalary >= salaryVal);
+          
+          // 求人区分（公開/非公開）
+          const matchPrivacy = selectedPrivacy.length === 0 || selectedPrivacy.some(privVal => {
+            if (privVal === 'private') return job.isPrivate === true;
+            if (privVal === 'public') return job.isPrivate === false;
+            return true;
+          });
+
+          // フリーワード検索
+          const matchSearch = searchQuery === '' || 
+            job.title.toLowerCase().includes(searchQuery) ||
+            job.companyName.toLowerCase().includes(searchQuery) ||
+            job.industry.toLowerCase().includes(searchQuery) ||
+            job.occupation.toLowerCase().includes(searchQuery) ||
+            job.description.toLowerCase().includes(searchQuery) ||
+            job.requirements.some(req => req.toLowerCase().includes(searchQuery));
+
+          return matchOccupation && matchLocation && matchSalary && matchPrivacy && matchSearch;
+        });
+
+        // 該当数の表示
+        jobCountSpan.textContent = filtered.length;
+
+        // 絞り込みタグの表示更新
+        updateFilterTags(selectedOccupations, selectedLocations, selectedSalaries, selectedPrivacy, searchQuery);
+
+        // カード描画
+        if (filtered.length > 0) {
+          listContainer.style.display = 'flex';
+          noJobsMsg.style.display = 'none';
+
+          listContainer.innerHTML = filtered.map(job => {
+            const badgeClass = job.isPrivate ? 'badge-private' : 'badge-primary';
+            const badgeText = job.isPrivate ? '<i class="fa-solid fa-lock" style="margin-right: 4px;"></i> 非公開求人' : '公開求人';
+            
+            return `
+              <article class="job-card reveal active">
+                <div class="job-card__header">
+                  <div class="job-card__title-area">
+                    <span class="job-card__company">${job.companyName}</span>
+                    <h3 class="job-card__title">
+                      <a href="job-detail.html?id=${job.id}">${job.title}</a>
+                    </h3>
+                  </div>
+                  <span class="badge ${badgeClass}">${badgeText}</span>
+                </div>
+                <div class="job-card__badges">
+                  <span class="badge badge-outline">${job.jobType}</span>
+                  <span class="badge badge-outline"><i class="fa-solid fa-location-dot" style="margin-right: 4px;"></i> ${job.location.split('（')[0]}</span>
+                  ${job.isPrivate ? '<span class="badge badge-accent" style="font-size: 0.65rem;"><i class="fa-solid fa-star"></i> 独占案件</span>' : ''}
+                </div>
+                <div class="job-card__body">
+                  <div class="job-card__meta-item">
+                    <i class="fa-solid fa-industry"></i>
+                    <span><strong>業界:</strong> ${job.industry}</span>
+                  </div>
+                  <div class="job-card__meta-item">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span><strong>職種:</strong> ${job.occupation}</span>
+                  </div>
+                </div>
+                <div class="job-card__footer">
+                  <div style="display: flex; flex-direction: column;">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); font-weight:600;">想定年収</span>
+                    <span class="job-card__salary">${job.salary}</span>
+                  </div>
+                  <a href="job-detail.html?id=${job.id}" class="btn btn-secondary">求人詳細を見る <i class="fa-solid fa-arrow-right-long" style="margin-left: 4px;"></i></a>
+                </div>
+              </article>
+            `;
+          }).join('');
+        } else {
+          listContainer.style.display = 'none';
+          noJobsMsg.style.display = 'block';
+        }
+      }
+
+      // 絞り込みタグのUI更新
+      function updateFilterTags(occupations, locations, salaries, privacy, search) {
+        const tags = [];
+        
+        occupations.forEach(val => {
+          let label = '';
+          if (val === 'construction') label = '施工管理';
+          if (val === 'manufacturing') label = '製造職';
+          if (val === 'office') label = 'オフィスワーク';
+          tags.push({ label, type: 'occupation', val });
+        });
+
+        locations.forEach(val => {
+          let label = '';
+          if (val === 'tokyo') label = '東京都';
+          if (val === 'aichi') label = '愛知県';
+          if (val === 'osaka') label = '大阪府';
+          tags.push({ label, type: 'location', val });
+        });
+
+        salaries.forEach(val => {
+          tags.push({ label: `${val}万円以上`, type: 'salary', val });
+        });
+
+        privacy.forEach(val => {
+          tags.push({ label: val === 'private' ? '非公開' : '公開', type: 'privacy', val });
+        });
+
+        if (search) {
+          tags.push({ label: `キーワード: "${search}"`, type: 'search', val: search });
+        }
+
+        if (tags.length > 0) {
+          activeFiltersInfo.style.display = 'flex';
+          activeFilterTags.innerHTML = tags.map(tag => `
+            <span class="badge badge-outline" style="border-color: var(--primary-color); color: var(--primary-color); background-color: var(--primary-light); padding: var(--space-xs) var(--space-sm); gap: var(--space-xs);">
+              ${tag.label}
+            </span>
+          `).join('');
+        } else {
+          activeFiltersInfo.style.display = 'none';
+        }
+      }
+
+      // チェックボックス操作での即時反映
+      checkboxes.forEach(cb => {
+        cb.addEventListener('change', filterAndRenderJobs);
+      });
+
+      // 検索ボタンクリックでの検索実行
+      searchBtn.addEventListener('click', filterAndRenderJobs);
+      searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') filterAndRenderJobs();
+      });
+
+      // 条件クリアボタン
+      resetBtn.addEventListener('click', () => {
+        checkboxes.forEach(cb => cb.checked = false);
+        searchInput.value = '';
+        filterAndRenderJobs();
+      });
+
+      // 初回実行
+      filterAndRenderJobs();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>求人詳細｜BUDDIES CAREER（バディーズキャリア）</title>
+  <meta name="description" content="求人情報の詳細ページです。">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/job.css">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__container">
+      <a href="index.html" class="logo">
+        <div class="logo__icon"><i class="fa-solid fa-people-arrows"></i></div>
+        <span class="logo__text">BUDDIES CAREER</span>
+      </a>
+      
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">ホーム</a></li>
+          <li><a href="company.html" class="nav__link">ビジョン・ミッション</a></li>
+          <li><a href="articles.html" class="nav__link">キャリアノウハウ</a></li>
+          <li><a href="jobs.html" class="nav__link active">求人検索</a></li>
+        </ul>
+        <div class="header__cta">
+          <a href="contact.html" class="btn btn-primary btn-sm"><i class="fa-regular fa-comments"></i> 無料キャリア相談</a>
+        </div>
+      </nav>
+
+      <button class="burger-menu" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav class="mobile-nav">
+    <ul class="mobile-nav__list">
+      <li><a href="index.html" class="mobile-nav__link">ホーム</a></li>
+      <li><a href="company.html" class="mobile-nav__link">ビジョン・ミッション</a></li>
+      <li><a href="articles.html" class="mobile-nav__link">キャリアノウハウ</a></li>
+      <li><a href="jobs.html" class="mobile-nav__link active">求人検索</a></li>
+    </ul>
+    <div class="mobile-nav__cta" style="margin-top: var(--space-md);">
+      <a href="contact.html" class="btn btn-primary" style="width: 100%;"><i class="fa-regular fa-comments"></i> 無料キャリア相談</a>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <section class="section section-bg-gray" style="padding-top: calc(var(--header-height) + var(--space-xl)); padding-bottom: var(--space-xs);">
+    <div class="container">
+      <ul class="breadcrumb">
+        <li class="breadcrumb__item"><a href="index.html" class="breadcrumb__link">ホーム</a></li>
+        <li class="breadcrumb__item"><a href="jobs.html" class="breadcrumb__link">求人検索</a></li>
+        <li class="breadcrumb__item" id="breadcrumb-current-job">求人詳細</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Main Content Layout -->
+  <section class="section" style="padding-top: var(--space-lg);">
+    <div class="container job-detail-layout">
+      <!-- Left: Job Detailed Specs -->
+      <main class="job-detail-main">
+        
+        <!-- Job Hero Box -->
+        <div class="job-detail-hero">
+          <span class="badge badge-private job-detail-hero__private-badge" id="job-privacy-badge">
+            <i class="fa-solid fa-lock"></i> 非公開求人
+          </span>
+          <span class="job-detail-hero__company" id="job-company-name">企業名</span>
+          <h1 class="job-detail-hero__title" id="job-title">求人タイトル</h1>
+          
+          <div class="job-card__badges" id="job-tags-container" style="margin-top: var(--space-xs);">
+            <!-- 動的バッジ -->
+          </div>
+
+          <div class="job-detail-hero__quick-specs">
+            <div class="quick-spec-item">
+              <span class="quick-spec-label"><i class="fa-solid fa-yen-sign"></i> 想定年収</span>
+              <span class="quick-spec-value" id="job-quick-salary">万円</span>
+            </div>
+            <div class="quick-spec-item">
+              <span class="quick-spec-label"><i class="fa-solid fa-location-dot"></i> 勤務地</span>
+              <span class="quick-spec-value" id="job-quick-location">勤務エリア</span>
+            </div>
+            <div class="quick-spec-item">
+              <span class="quick-spec-label"><i class="fa-solid fa-briefcase"></i> 雇用形態</span>
+              <span class="quick-spec-value" id="job-quick-type">正社員</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Private Alert Panel (非公開求人の時だけJSで表示) -->
+        <div class="job-detail__private-alert" id="private-job-alert" style="display: none;">
+          <i class="fa-solid fa-lock" style="font-size: 2.5rem; color: var(--secondary-color);"></i>
+          <h2 class="private-alert__title">この求人は「完全非公開求人」です</h2>
+          <p class="private-alert__desc">
+            BUDDIES CAREERの会員様限定、または個別にご案内している非公開求人です。<br>
+            企業の本当の名前や、詳細な内部要件、応募資格の緩和条件などを閲覧・確認するには、伴走アドバイザー（バディ）による個別のご案内が必要となります。まずは無料のキャリア相談へご登録ください。
+          </p>
+          <a href="contact.html?source=private_job" class="btn btn-primary" id="private-job-btn"><i class="fa-regular fa-comments"></i> 登録してこの求人を問い合わせる (無料)</a>
+        </div>
+
+        <!-- Detail Box 1: Description -->
+        <div class="job-detail-box">
+          <h2 class="job-detail-box__title"><i class="fa-solid fa-circle-info"></i> 求人概要・アピールポイント</h2>
+          <p id="job-full-description" style="line-height: 1.8; color: var(--text-secondary); white-space: pre-line;">
+            求人概要テキストが入ります。
+          </p>
+        </div>
+
+        <!-- Detail Box 2: Spec Table (非公開求人の時は一部ブラーエフェクト) -->
+        <div class="job-detail-box" id="job-specs-box">
+          <h2 class="job-detail-box__title"><i class="fa-solid fa-list-check"></i> 募集要項・スペック</h2>
+          
+          <div id="blur-spec-wrapper">
+            <table class="spec-table">
+              <tr>
+                <th>仕事内容</th>
+                <td id="job-spec-content">仕事内容詳細</td>
+              </tr>
+              <tr>
+                <th>必須応募条件</th>
+                <td>
+                  <ul id="job-spec-requirements">
+                    <!-- 動的必須条件 -->
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th>歓迎・好ましい経験</th>
+                <td>
+                  <ul id="job-spec-preferred">
+                    <!-- 動的歓迎条件 -->
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th>給与・待遇</th>
+                <td id="job-spec-salary">給与詳細</td>
+              </tr>
+              <tr>
+                <th>勤務地・アクセス</th>
+                <td id="job-spec-location">勤務地詳細</td>
+              </tr>
+              <tr>
+                <th>福利厚生・諸手当</th>
+                <td>
+                  <ul id="job-spec-welfare">
+                    <!-- 福利厚生 -->
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Detail Box 3: Recruitment Steps (選考フロー) -->
+        <div class="job-detail-box">
+          <h2 class="job-detail-box__title"><i class="fa-solid fa-route"></i> 選考プロセス</h2>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: var(--space-md);">※BUDDIES CAREERの伴走アドバイザーが、書類作成のコツから面接対策のアドバイスまで全面的にサポートします。</p>
+          <div class="step-chart">
+            <div class="step-card">
+              <span class="step-card__num">01</span>
+              <span class="step-card__title">ご応募・登録</span>
+              <span class="step-card__desc">バディがご面談調整を行います</span>
+            </div>
+            <div class="step-card">
+              <span class="step-card__num">02</span>
+              <span class="step-card__title">バディ面談・推薦</span>
+              <span class="step-card__desc">強みと書類のブラッシュアップ</span>
+            </div>
+            <div class="step-card">
+              <span class="step-card__num">03</span>
+              <span class="step-card__title">企業選考（面接）</span>
+              <span class="step-card__desc">通常1〜2回の面接が行われます</span>
+            </div>
+            <div class="step-card">
+              <span class="step-card__num">04</span>
+              <span class="step-card__title">内定・ご入社</span>
+              <span class="step-card__desc">条件交渉や入社日調整もお任せ</span>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Right: Sticky Sidebar CTA Card -->
+      <aside class="job-detail-sidebar">
+        <div class="job-sticky-sidebar">
+          <div class="job-sidebar-card">
+            <span class="job-sidebar-card__price-label">想定年収</span>
+            <div class="job-sidebar-card__price" id="job-sidebar-salary">万円</div>
+            
+            <a href="contact.html" class="btn btn-primary job-sidebar-card__btn" id="job-main-cta-btn">
+              <i class="fa-solid fa-paper-plane"></i> この求人に応募する (無料)
+            </a>
+            
+            <div style="margin-top: var(--space-md); display: flex; flex-direction: column; gap: var(--space-xs); font-size: 0.75rem; color: var(--text-muted); text-align: left; background-color: var(--bg-secondary); padding: var(--space-md); border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+              <span style="font-weight: 700; color: var(--text-primary);"><i class="fa-solid fa-user-shield" style="color: var(--secondary-color);"></i> バディによる無料サポート:</span>
+              <span>・履歴書、職務経歴書の代理添削</span>
+              <span>・非公開条件の代理交渉</span>
+              <span>・面接通過率を高める模擬面接</span>
+            </div>
+          </div>
+
+          <!-- Mini Contact Box -->
+          <div class="job-sidebar-card" style="background: var(--gradient-soft); border-color: rgba(16, 185, 129, 0.2);">
+            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-xs);">求人についてバディに質問する</h4>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: var(--space-md);">「自分の経歴でも受かる？」「実際の残業時間はどのくらい？」など、気になる質問に担当者が直接回答します。</p>
+            <a href="contact.html?type=question" class="btn btn-secondary btn-sm" style="width: 100%;">求人について質問する</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a href="index.html" class="logo footer__logo">
+            <div class="logo__icon"><i class="fa-solid fa-people-arrows"></i></div>
+            <span class="logo__text" style="color: #ffffff;">BUDDIES CAREER</span>
+          </a>
+          <p class="footer__desc">
+            「BUDDIES CAREER」は、製造・建設・インフラ等の技術職におけるキャリアアップ・転職支援を行うプラットフォームです。求職者に徹底して寄り添うバディ（伴走者）として、価値あるキャリアを共に創出します。
+          </p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__title">サービスメニュー</h3>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">ホーム</a></li>
+            <li><a href="company.html" class="footer__link">ビジョン・ミッション</a></li>
+            <li><a href="articles.html" class="footer__link">キャリアノウハウ（記事一覧）</a></li>
+            <li><a href="jobs.html" class="footer__link">求人を探す（求人一覧）</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__title">主要な取扱職種</h3>
+          <ul class="footer__links">
+            <li><a href="jobs.html?occupation=construction" class="footer__link">建築・土木施工管理</a></li>
+            <li><a href="jobs.html?occupation=manufacturing" class="footer__link">スマート製造・生産ライン管理</a></li>
+            <li><a href="jobs.html?occupation=office" class="footer__link">プロジェクトアシスタント・一般事務</a></li>
+            <li><a href="jobs.html" class="footer__link">その他優良技術職</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__newsletter">
+          <h3 class="footer__title">メルマガ登録</h3>
+          <p class="footer__desc" style="font-size: 0.85rem;">最新の非公開求人情報や、役立つキャリアノウハウ記事を定期的にお届けします。</p>
+          <form class="footer__newsletter-form" onsubmit="event.preventDefault(); alert('ご登録ありがとうございました！');">
+            <input type="email" placeholder="メールアドレス" class="footer__newsletter-input" required aria-label="メールアドレス入力">
+            <button type="submit" class="footer__newsletter-btn">購読</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__copyright">
+        <p>&copy; 2026 BUDDIES CAREER All Rights Reserved.</p>
+        <div class="footer__policy-links">
+          <a href="#" class="footer__link">利用規約</a>
+          <a href="#" class="footer__link">プライバシーポリシー</a>
+          <a href="#" class="footer__link">運営会社情報</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  
+  <!-- 求人詳細動的バインド -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const data = window.BUDDIES_DATA;
+      if (!data) return;
+
+      // 1. URLから求人IDを取得
+      const urlParams = new URLSearchParams(window.location.search);
+      const jobId = parseInt(urlParams.get('id'));
+
+      let job = data.jobs.find(j => j.id === jobId);
+
+      // 見つからない場合は最初の求人を表示 (フォールバック)
+      if (!job) {
+        job = data.jobs[0];
+      }
+
+      // 2. 求人データのバインド
+      document.title = `${job.title}｜BUDDIES CAREER`;
+      document.getElementById('breadcrumb-current-job').textContent = job.title;
+      document.getElementById('job-company-name').textContent = job.companyName;
+      document.getElementById('job-title').textContent = job.title;
+      
+      document.getElementById('job-quick-salary').textContent = job.salary.replace('年収', '').trim();
+      document.getElementById('job-quick-location').textContent = job.location.split('（')[0];
+      document.getElementById('job-quick-type').textContent = job.jobType;
+      
+      document.getElementById('job-sidebar-salary').textContent = job.salary.replace('年収', '').trim();
+      
+      document.getElementById('job-full-description').textContent = job.description;
+
+      // タグのバインド
+      const tagsContainer = document.getElementById('job-tags-container');
+      tagsContainer.innerHTML = `
+        <span class="badge badge-outline">${job.jobType}</span>
+        <span class="badge badge-outline"><i class="fa-solid fa-industry"></i> ${job.industry}</span>
+        <span class="badge badge-outline"><i class="fa-solid fa-briefcase"></i> ${job.occupation}</span>
+      `;
+
+      // 3. 非公開求人の特殊バインド・エフェクト
+      const privacyBadge = document.getElementById('job-privacy-badge');
+      const privateAlert = document.getElementById('private-job-alert');
+      const blurWrapper = document.getElementById('blur-spec-wrapper');
+      const mainCtaBtn = document.getElementById('job-main-cta-btn');
+
+      if (job.isPrivate) {
+        privacyBadge.className = 'badge badge-private job-detail-hero__private-badge';
+        privacyBadge.innerHTML = '<i class="fa-solid fa-lock"></i> 非公開求人';
+        
+        // 非公開パネルの表示
+        privateAlert.style.display = 'flex';
+        
+        // スペックテーブルにブラー（ぼかし）クラスをかける
+        blurWrapper.className = 'private-blur-content';
+
+        // 右側CTAボタンの文言を変更
+        mainCtaBtn.innerHTML = '<i class="fa-solid fa-lock-open"></i> 非公開の企業名を聞く (無料)';
+        mainCtaBtn.className = 'btn btn-primary job-sidebar-card__btn';
+        mainCtaBtn.href = `contact.html?job_id=${job.id}&job_title=${encodeURIComponent(job.title)}&source=private_job`;
+      } else {
+        privacyBadge.className = 'badge badge-primary job-detail-hero__private-badge';
+        privacyBadge.innerHTML = '公開求人';
+        privateAlert.style.display = 'none';
+        blurWrapper.className = '';
+        
+        mainCtaBtn.href = `contact.html?job_id=${job.id}&job_title=${encodeURIComponent(job.title)}&source=apply`;
+      }
+
+      // スペック詳細テーブルのバインド (ブラー内であってもモックデータを流し込んでおく)
+      document.getElementById('job-spec-content').textContent = job.description;
+      
+      const reqList = document.getElementById('job-spec-requirements');
+      reqList.innerHTML = job.requirements.map(r => `<li>${r}</li>`).join('');
+      
+      const prefList = document.getElementById('job-spec-preferred');
+      prefList.innerHTML = job.preferred.map(p => `<li>${p}</li>`).join('');
+      
+      document.getElementById('job-spec-salary').textContent = job.salary;
+      document.getElementById('job-spec-location').textContent = job.location;
+      
+      const welfareList = document.getElementById('job-spec-welfare');
+      welfareList.innerHTML = job.welfare.map(w => `<li>${w}</li>`).join('');
+    });
+  </script>
+</body>
+</html>

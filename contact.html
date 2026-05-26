@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>無料キャリア相談・応募｜BUDDIES CAREER（バディーズキャリア）</title>
+  <meta name="description" content="BUDDIES CAREER（バディーズキャリア）の無料キャリア相談・求人応募フォームです。プロのアドバイザーがあなたの『バディ』として、理想のキャリア構築を無料で徹底サポートします。">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/contact.css">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__container">
+      <a href="index.html" class="logo">
+        <div class="logo__icon"><i class="fa-solid fa-people-arrows"></i></div>
+        <span class="logo__text">BUDDIES CAREER</span>
+      </a>
+      
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">ホーム</a></li>
+          <li><a href="company.html" class="nav__link">ビジョン・ミッション</a></li>
+          <li><a href="articles.html" class="nav__link">キャリアノウハウ</a></li>
+          <li><a href="jobs.html" class="nav__link">求人検索</a></li>
+        </ul>
+        <div class="header__cta">
+          <a href="contact.html" class="btn btn-primary btn-sm active"><i class="fa-regular fa-comments"></i> 無料キャリア相談</a>
+        </div>
+      </nav>
+
+      <button class="burger-menu" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav class="mobile-nav">
+    <ul class="mobile-nav__list">
+      <li><a href="index.html" class="mobile-nav__link">ホーム</a></li>
+      <li><a href="company.html" class="mobile-nav__link">ビジョン・ミッション</a></li>
+      <li><a href="articles.html" class="mobile-nav__link">キャリアノウハウ</a></li>
+      <li><a href="jobs.html" class="mobile-nav__link">求人検索</a></li>
+    </ul>
+    <div class="mobile-nav__cta" style="margin-top: var(--space-md);">
+      <a href="contact.html" class="btn btn-primary" style="width: 100%;"><i class="fa-regular fa-comments"></i> 無料キャリア相談</a>
+    </div>
+  </nav>
+
+  <!-- Page Breadcrumb & Title -->
+  <section class="section section-bg-gray" style="padding-top: calc(var(--header-height) + var(--space-xl)); padding-bottom: var(--space-md);">
+    <div class="container">
+      <ul class="breadcrumb">
+        <li class="breadcrumb__item"><a href="index.html" class="breadcrumb__link">ホーム</a></li>
+        <li class="breadcrumb__item">キャリア相談・応募</li>
+      </ul>
+      <div class="section-title-area" style="text-align: left; align-items: flex-start; margin-bottom: 0;">
+        <span class="section-subtitle">REGISTRATION</span>
+        <h1 class="section-title">キャリア相談・求人応募 <span class="gradient">フォーム</span></h1>
+        <p style="color: var(--text-secondary); margin-top: var(--space-sm); max-width: 600px;">
+          必要事項をご入力の上、送信してください。ご登録完了後、2営業日以内に担当の伴走アドバイザー（バディ）よりご連絡を差し上げます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section class="section">
+    <div class="container">
+      <div class="form-wrapper">
+        
+        <!-- Step Indicator UI -->
+        <div class="step-indicator">
+          <div class="step-indicator__item active" id="step-indicator-1">
+            <span class="step-indicator__num">1</span>
+            <span>情報入力</span>
+          </div>
+          <div class="step-indicator__line"></div>
+          <div class="step-indicator__item" id="step-indicator-2">
+            <span class="step-indicator__num">2</span>
+            <span>内容確認</span>
+          </div>
+          <div class="step-indicator__line"></div>
+          <div class="step-indicator__item" id="step-indicator-3">
+            <span class="step-indicator__num">3</span>
+            <span>送信完了</span>
+          </div>
+        </div>
+
+        <!-- Target Job Display Panel (求人からリンクされた時に動的に表示) -->
+        <div id="target-job-panel" style="display: none; background-color: var(--primary-light); border: 1px solid rgba(37, 99, 235, 0.2); border-radius: var(--radius-md); padding: var(--space-md); margin-bottom: var(--space-xl); display: flex; align-items: center; gap: var(--space-sm);">
+          <i class="fa-solid fa-file-contract" style="color: var(--primary-color); font-size: 1.25rem;"></i>
+          <div>
+            <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; display: block;">応募・問い合わせ中の求人:</span>
+            <span id="target-job-title" style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">求人名</span>
+          </div>
+        </div>
+
+        <!-- Form Elements -->
+        <form id="contact-form" novalidate>
+          
+          <!-- STEP 1: INPUT SCREEN -->
+          <div class="form-section active" id="section-step-1">
+            
+            <div class="form-row">
+              <!-- Name Input -->
+              <div class="form-group">
+                <label for="user-name" class="form-label">お名前 <span class="required">必須</span></label>
+                <input type="text" id="user-name" class="form-control" placeholder="山田 太郎" required>
+                <span class="form-error-msg" id="error-user-name">お名前を入力してください。</span>
+              </div>
+
+              <!-- Name Kana Input -->
+              <div class="form-group">
+                <label for="user-kana" class="form-label">フリガナ <span class="required">必須</span></label>
+                <input type="text" id="user-kana" class="form-control" placeholder="ヤマダ タロウ" required>
+                <span class="form-error-msg" id="error-user-kana">フリガナをカタカナで入力してください。</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <!-- Email Input -->
+              <div class="form-group">
+                <label for="user-email" class="form-label">メールアドレス <span class="required">必須</span></label>
+                <input type="email" id="user-email" class="form-control" placeholder="example@buddies.com" required>
+                <span class="form-error-msg" id="error-user-email">正しいメールアドレスを入力してください。</span>
+              </div>
+
+              <!-- Phone Input -->
+              <div class="form-group">
+                <label for="user-phone" class="form-label">電話番号 <span class="required">必須</span></label>
+                <input type="tel" id="user-phone" class="form-control" placeholder="09012345678" required>
+                <span class="form-error-msg" id="error-user-phone">ハイフンなしの半角数字（10桁または11桁）で入力してください。</span>
+              </div>
+            </div>
+
+            <!-- Occupation Preference / Select -->
+            <div class="form-group">
+              <label class="form-label">ご希望・興味のある職種 <span class="required">必須</span></label>
+              <div class="form-radio-group">
+                <label class="form-radio-label">
+                  <input type="radio" name="job-preference" value="施工管理・建築ディレクター" class="form-radio" checked> 施工管理・建築ディレクター
+                </label>
+                <label class="form-radio-label">
+                  <input type="radio" name="job-preference" value="スマート製造・生産ライン管理" class="form-radio"> 製造・スマート技術職
+                </label>
+                <label class="form-radio-label">
+                  <input type="radio" name="job-preference" value="プロジェクトアシスタント・一般事務" class="form-radio"> プロジェクトサポート・事務
+                </label>
+                <label class="form-radio-label">
+                  <input type="radio" name="job-preference" value="その他（相談して決めたい）" class="form-radio"> その他（相談して決めたい）
+                </label>
+              </div>
+            </div>
+
+            <!-- Text area -->
+            <div class="form-group">
+              <label for="user-message" class="form-label">ご相談内容・ご希望の働き方 <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: normal;">任意</span></label>
+              <textarea id="user-message" class="form-control" placeholder="例：『未経験から施工管理に挑戦したいが不安』『土日休みで年収500万円以上の求人を紹介してほしい』など、自由にご記入ください。"></textarea>
+              <span class="form-help-text">※求人の問い合わせの場合は、「求人について聞きたい」等とご記入ください。</span>
+            </div>
+
+            <!-- Privacy check -->
+            <div class="form-group" style="margin-top: var(--space-xl);">
+              <label class="filter-checkbox-label" style="align-items: flex-start;">
+                <input type="checkbox" id="privacy-agree" class="filter-checkbox" required>
+                <span style="font-size: 0.85rem; line-height: 1.5;">
+                  BUDDIES CAREERの <a href="#" target="_blank" style="color: var(--primary-color); font-weight: 700; text-decoration: underline;">個人情報の取扱規定（プライバシーポリシー）</a> に同意する。 <span class="required">必須</span>
+                </span>
+              </label>
+              <span class="form-error-msg" id="error-privacy-agree" style="margin-top: var(--space-xs);">※送信するにはプライバシーポリシーへの同意が必要です。</span>
+            </div>
+
+            <!-- Button Wrapper -->
+            <div class="form-actions">
+              <button type="button" id="btn-to-step-2" class="btn btn-primary">
+                入力内容を確認する <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- STEP 2: CONFIRM SCREEN -->
+          <div class="form-section" id="section-step-2">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: var(--space-lg); border-bottom: 2px solid var(--border-color); padding-bottom: var(--space-xs);">入力内容のご確認</h3>
+            
+            <table class="confirm-table">
+              <tr>
+                <th>お名前</th>
+                <td id="confirm-name">山田 太郎</td>
+              </tr>
+              <tr>
+                <th>フリガナ</th>
+                <td id="confirm-kana">ヤマダ タロウ</td>
+              </tr>
+              <tr>
+                <th>メールアドレス</th>
+                <td id="confirm-email">example@buddies.com</td>
+              </tr>
+              <tr>
+                <th>電話番号</th>
+                <td id="confirm-phone">09012345678</td>
+              </tr>
+              <tr>
+                <th>希望・興味のある職種</th>
+                <td id="confirm-pref">施工管理</td>
+              </tr>
+              <tr>
+                <th>ご相談内容・希望の働き方</th>
+                <td id="confirm-message" style="white-space: pre-line;">なし</td>
+              </tr>
+            </table>
+
+            <div class="form-actions" style="justify-content: space-between;">
+              <button type="button" id="btn-back-to-step-1" class="btn btn-secondary">
+                <i class="fa-solid fa-angle-left"></i> 修正する
+              </button>
+              <button type="button" id="btn-submit" class="btn btn-primary" style="background: var(--gradient-brand-hover);">
+                この内容で送信する <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: COMPLETE SCREEN -->
+          <div class="form-section" id="section-step-3">
+            <div class="complete-screen">
+              <div class="success-icon-wrapper">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <h2 class="complete-title">ご登録ありがとうございました！</h2>
+              <p class="complete-desc">
+                キャリア相談（応募）のお申し込みを受付いたしました。<br>
+                ご入力いただいたメールアドレス宛に自動送信の確認メールをお送りしました。<br><br>
+                これより、あなたの「相棒（バディ）」となる担当のキャリアアドバイザーが内容を確認し、<strong>2営業日以内</strong>にご面談調整（またはお電話にて詳細ヒアリング）のご連絡を差し上げます。今しばらくお待ちください。
+              </p>
+              <a href="index.html" class="btn btn-primary"><i class="fa-solid fa-house"></i> トップページへ戻る</a>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a href="index.html" class="logo footer__logo">
+            <div class="logo__icon"><i class="fa-solid fa-people-arrows"></i></div>
+            <span class="logo__text" style="color: #ffffff;">BUDDIES CAREER</span>
+          </a>
+          <p class="footer__desc">
+            「BUDDIES CAREER」は、製造・建設・インフラ等の技術職におけるキャリアアップ・転職支援を行うプラットフォームです。求職者に徹底して寄り添うバディ（伴走者）として、価値あるキャリアを共に創出します。
+          </p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LINE"><i class="fa-brands fa-line"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__title">サービスメニュー</h3>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">ホーム</a></li>
+            <li><a href="company.html" class="footer__link">ビジョン・ミッション</a></li>
+            <li><a href="articles.html" class="footer__link">キャリアノウハウ（記事一覧）</a></li>
+            <li><a href="jobs.html" class="footer__link">求人を探す（求人一覧）</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__title">主要な取扱職種</h3>
+          <ul class="footer__links">
+            <li><a href="jobs.html?occupation=construction" class="footer__link">建築・土木施工管理</a></li>
+            <li><a href="jobs.html?occupation=manufacturing" class="footer__link">スマート製造・生産ライン管理</a></li>
+            <li><a href="jobs.html?occupation=office" class="footer__link">プロジェクトアシスタント・一般事務</a></li>
+            <li><a href="jobs.html" class="footer__link">その他優良技術職</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__newsletter">
+          <h3 class="footer__title">メルマガ登録</h3>
+          <p class="footer__desc" style="font-size: 0.85rem;">最新の非公開求人情報や、役立つキャリアノウハウ記事を定期的にお届けします。</p>
+          <form class="footer__newsletter-form" onsubmit="event.preventDefault(); alert('ご登録ありがとうございました！');">
+            <input type="email" placeholder="メールアドレス" class="footer__newsletter-input" required aria-label="メールアドレス入力">
+            <button type="submit" class="footer__newsletter-btn">購読</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__copyright">
+        <p>&copy; 2026 BUDDIES CAREER All Rights Reserved.</p>
+        <div class="footer__policy-links">
+          <a href="#" class="footer__link">利用規約</a>
+          <a href="#" class="footer__link">プライバシーポリシー</a>
+          <a href="#" class="footer__link">運営会社情報</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/contact.js"></script>
+</body>
+</html>
