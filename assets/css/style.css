@@ -446,3 +446,20 @@
     height: 70px;
   }
 }
+
+/* Responsive Line Breaks & Wrap utilities */
+.pc-only {
+  display: inline;
+}
+.sp-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .pc-only {
+    display: none;
+  }
+  .sp-only {
+    display: inline;
+  }
+}
