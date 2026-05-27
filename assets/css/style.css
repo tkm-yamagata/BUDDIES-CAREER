@@ -508,3 +508,117 @@
     display: inline;
   }
 }
+
+/* ==========================================================================
+   FAQ Accordion Styles
+   ========================================================================== */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.faq__item {
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: var(--transition-normal);
+}
+
+.faq__item.active {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.faq__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  gap: var(--space-md);
+  outline: none;
+}
+
+.faq__q-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--gradient-brand);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.faq__q-text {
+  flex-grow: 1;
+}
+
+.faq__toggle-icon {
+  color: var(--text-muted);
+  transition: var(--transition-normal);
+  font-size: 0.9rem;
+}
+
+.faq__item.active .faq__toggle-icon {
+  transform: rotate(45deg);
+  color: var(--primary-color);
+}
+
+.faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.faq__answer-content {
+  padding: 0 var(--space-lg) var(--space-md) var(--space-lg);
+  display: flex;
+  gap: var(--space-md);
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--space-md);
+  background-color: var(--bg-secondary);
+}
+
+.faq__a-icon {
+  width: 28px;
+  height: 28px;
+  background-color: var(--secondary-color);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.faq__a-text {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+@media (max-width: 576px) {
+  .faq__question {
+    padding: var(--space-md);
+    font-size: 0.95rem;
+  }
+  .faq__answer-content {
+    padding: var(--space-md);
+  }
+}

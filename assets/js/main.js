@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initMobileMenu();
   initScrollAnimations();
+  initFAQ();
 });
 
 /**
@@ -92,5 +93,40 @@ function initScrollAnimations() {
 
   reveals.forEach(reveal => {
     observer.observe(reveal);
+  });
+}
+
+/**
+ * FAQアコーディオンの制御
+ */
+function initFAQ() {
+  const faqQuestions = document.querySelectorAll('.faq__question');
+  
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      const answer = question.nextElementSibling;
+      const isOpen = item.classList.contains('active');
+      
+      // 他のすべてのFAQアイテムを閉じる（アコーディオンの排他動作）
+      document.querySelectorAll('.faq__item').forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+          const otherAnswer = otherItem.querySelector('.faq__answer');
+          if (otherAnswer) {
+            otherAnswer.style.maxHeight = null;
+          }
+        }
+      });
+
+      // トグル開閉動作
+      if (isOpen) {
+        item.classList.remove('active');
+        answer.style.maxHeight = null;
+      } else {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
   });
 }
