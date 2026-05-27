@@ -379,6 +379,26 @@
   font-weight: 500;
 }
 
+.btn-line-link {
+  font-size: 0.75rem;
+  color: #06C755;
+  border: 1px solid rgba(6, 199, 85, 0.3);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  transition: var(--transition-fast);
+  display: inline-block;
+  word-break: break-all;
+  background-color: rgba(6, 199, 85, 0.05);
+}
+
+.btn-line-link:hover {
+  background-color: rgba(6, 199, 85, 0.1);
+  border-color: #06C755;
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .footer__copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding-top: var(--space-xl);
